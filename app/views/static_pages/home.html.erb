@@ -1,5 +1,15 @@
 <% if logged_in? %>
 
+<% if notice %>
+
+      <div class="alert alert-info">
+        
+<%= notice %>
+
+      </div>
+    
+<% end %>
+
   <div class="row">
     <aside class="col-md-4">
       <seciton class="user_info">
