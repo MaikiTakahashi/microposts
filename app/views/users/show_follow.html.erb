@@ -10,7 +10,7 @@
   
   <div class="col-md-8">
     <% if @users.any? %>
-      <%= @users.each do |user| %>
+      <% @users.each do |user| %>
         <ul class="users_follow">
           <li>
             <%= gravatar_for user, size:50 %>
@@ -21,11 +21,3 @@
     <% end %>    
   </div>
 </div>
-
-
-list-style: none;
-  padding: 0;
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
