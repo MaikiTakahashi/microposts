@@ -3,9 +3,10 @@
     <section class="user_info">
       <h1>
 
-<%= gravatar_for @user %>
-
-<%= @user.name %> 
+        <span><%= gravatar_for @user %></span>
+        <span><%= @user.name %></span>
+        <span><%= @user.live %></span>
+        <span><%= @user.introduction %></span>
           
       </h1>
     </section>

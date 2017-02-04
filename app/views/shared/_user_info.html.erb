@@ -3,4 +3,5 @@
 <span><%= link_to "View my profile", current_user %></span>
 <span><%= link_to "Edit my profile", edit_user_path(current_user) %></span>
 <span><%= current_user.live %></span>
+<span><%= current_user.introduction %></span>
 <span><%= pluralize(current_user.microposts.count, "micropost") %></span>
