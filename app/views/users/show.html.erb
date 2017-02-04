@@ -7,6 +7,8 @@
         <span><%= @user.name %></span>
         <span><%= @user.live %></span>
         <span><%= @user.introduction %></span>
+        <span><%= link_to "フォロワー一覧", followers_user_path(@user) %></span>
+        <span><%= link_to "フォロー一覧", followings_user_path(@user) %></span>
           
       </h1>
     </section>
