@@ -1,0 +1,7 @@
+<% loving_relationship = current_user.loving_relationships.find_by(loved_id: micropost.id) %>
+
+<%= form_for(loving_relationship, url:relationships_love_path(loving_relationship), html: { method: :delete }, remote: true) do |f| %>
+
+<%= f.submit "Unlove", class: "btn btn-primary" %>
+
+<% end %>

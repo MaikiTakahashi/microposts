@@ -1,0 +1,16 @@
+<% if current_user.microposts != @micropost %>
+
+    <div id="love-<%= micropost.id %>">
+        
+<% if current_user.loving?(micropost) %>
+
+<%= render 'unlove', micropost: micropost %>
+
+<% else %>
+
+<%= render 'love', micropost: micropost  %>
+        
+<% end %>
+
+    </div>
+<% end %>
