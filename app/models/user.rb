@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
                                     dependent:   :destroy
     has_many :follower_users, through: :follower_relationships, source: :follower
 
+    has_many :loving_relationships, class_name: "RelationshipLove", foreign_key: "lover_id", dependent: :destroy
+    has_many :loving_microposts, through: :loving_relationships, source: :loved
+
     # 他のユーザーをフォローする
     def follow(other_user)
       following_relationships.find_or_create_by(followed_id: other_user.id)
@@ -29,10 +32,26 @@ class User < ActiveRecord::Base
       following_relationship = following_relationships.find_by(followed_id: other_user.id)
       following_relationship.destroy if following_relationship
     end
-    
+     
     # あるユーザーをフォローしているかどうか
     def following?(other_user)
       following_users.include?(other_user)
+    end
+
+    # 投稿にラブする
+    def love(micropost)
+      loving_relationships.find_or_create_by(loved_id: micropost.id)
+    end
+    
+    # ラブした投稿にアンラブする
+    def unlove(micropost)
+      loving_relationship = loving_relationships.find_by(loved_id: micropost.id)
+      loving_relationship.destroy if loving_relationship
+    end
+    
+    # ある投稿をラブしているかどうか？
+    def loving?(micropost)
+      loving_microposts.include?(micropost)
     end
     
     def feed_items

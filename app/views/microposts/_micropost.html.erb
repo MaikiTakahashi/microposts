@@ -15,6 +15,8 @@
     ago.
   </span>
 
+<%= render 'love_form' , micropost: micropost if logged_in? %>
+
 <% if current_user == micropost.user %>
 
 <%= link_to "delete", micropost, method: :delete, date: { confirm: "You sure?"} %>

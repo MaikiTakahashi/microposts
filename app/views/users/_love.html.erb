@@ -1,0 +1,9 @@
+<%= form_for(current_user.loving_relationships.build, url:relationships_love_index_path, remote: true) do |f| %>
+
+  <div>
+    <%= hidden_field_tag :loved_id, micropost.id %>
+  </div>
+  
+<%= f.submit "Love", class: "btn btn-primary" %>
+
+<% end %>
