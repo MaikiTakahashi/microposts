@@ -33,10 +33,6 @@ class UsersController < ApplicationController
     end
   end
   
-  def set_user
-    @user = User.find(params[:id])
-  end
-
   def followings
     @users = @user.following_users
     render 'show_follow'
@@ -53,6 +49,10 @@ class UsersController < ApplicationController
   end  
   
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
   
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :live, :introduction)
