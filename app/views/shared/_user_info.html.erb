@@ -1,4 +1,10 @@
-<%= link_to gravatar_for(current_user, size: 50), current_user %>
+<span>
+  <% if current_user.avatar.blank? %>
+    <%= link_to gravatar_for(current_user, size: 50), current_user %>
+  <% else %>
+    <%= image_tag current_user.avatar.url %>
+  <% end %>
+</span>
 <h1><%= current_user.name %></h1>
 <span><%= link_to "View my profile", current_user %></span>
 <span><%= link_to "Edit my profile", edit_user_path(current_user) %></span>
